@@ -1,3 +1,27 @@
+---
+title: "AFS — Agent-Friendly Standard"
+subtitle: "Whitepaper v0.1"
+author:
+  - Norrai-lab
+date: "March 2026"
+abstract: |
+  AFS (Agent-Friendly Standard) is an open specification that defines how software
+  should be designed from the ground up so that AI agents can discover, understand,
+  and interact with it safely, efficiently, and reliably. Rather than forcing AI to
+  navigate human interfaces, AFS makes software a first-class tool for AI agents.
+keywords: [Agent-Oriented System Design, Software Engineering, AI Agent, MCP]
+# Eisvogel PDF template options
+titlepage: true
+titlepage-color: "1a1a2e"
+titlepage-text-color: "FFFFFF"
+titlepage-rule-color: "e94560"
+toc-own-page: true
+number-sections: true
+colorlinks: true
+linkcolor: "e94560"
+---
+
+
 # AFS Whitepaper v0.1 — Agent-Friendly Standard
 
 *"Don't teach AI to use human software — make software a good tool for AI."*
