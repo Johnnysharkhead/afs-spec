@@ -1,58 +1,54 @@
 # AFS Technical Specification — Overview
 
-<!-- TODO: This document is the authoritative technical reference for AFS. Expand each section with normative language (MUST / SHOULD / MAY) before v1.0. -->
+*Version: 0.2 (Draft)*
 
-This document is the technical specification for the **Agent-Friendly Standard (AFS)**. It defines the four layers that a compliant system must implement, along with the rules and conventions that govern each layer.
-
-For background and motivation, see the [whitepaper](../whitepaper/afs-whitepaper-v0.1.md).
+This document is the entry point for the **Agent-Friendly Standard (AFS)** technical specification. For background and motivation, see the [whitepaper](../whitepaper/afs-whitepaper-v0.1.md).
 
 ---
 
-## Layer 1 — Interface Layer
+## How to Read This Spec
 
-*Defines how agents invoke capabilities: transport, endpoints, and authentication.*
-
-<!-- TODO: Replace placeholder bullets with normative rules. -->
-
-- A compliant endpoint MUST be reachable over HTTPS and respond to a standard health-check path (e.g., `GET /.well-known/afs`).
-- Authentication schemes (API key, OAuth 2.0, none) MUST be declared in the skill definition and MUST NOT be inferred from behaviour alone.
-- All requests and responses MUST use UTF-8 encoded JSON unless an alternative encoding is explicitly declared in the skill definition.
+The keywords "MUST", "SHOULD", "MAY", and "MUST NOT" in all spec documents are to be interpreted as described in [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119).
 
 ---
 
-## Layer 2 — Documentation Layer
+## Design Principles
 
-*Defines how capabilities are described: skill definitions, input/output schemas, and human-readable metadata.*
-
-<!-- TODO: Define the canonical schema format and required vs. optional fields. -->
-
-- Every capability MUST be described by a skill definition file that conforms to the AFS skill schema (to be formalised in v0.2).
-- Skill definitions MUST include: `name`, `description`, `version`, `capabilities`, `inputSchema`, and `outputSchema`.
-- Human-readable descriptions SHOULD be written in plain English and MUST NOT exceed 500 characters per field.
+1. **Explicit over implicit** — Capabilities, inputs, outputs, and constraints MUST be declared, not inferred.
+2. **Layered adoption** — Implementors can adopt AFS incrementally, one layer at a time.
+3. **Human-readable and machine-parseable** — Skill definitions MUST be useful to both developers and agents.
+4. **Minimal overhead** — AFS SHOULD add as little friction as possible to existing systems.
+5. **Safety by default** — Destructive or sensitive operations MUST be explicitly flagged.
 
 ---
 
-## Layer 3 — Efficiency Layer
+## Three Interface Surfaces
 
-*Defines how agent-system interactions are optimised: caching, batching, and pagination.*
+Every AFS-compliant tool MUST provide at least one, and SHOULD provide all three of the following interaction surfaces, backed by the same core logic:
 
-<!-- TODO: Specify cache-control headers, batch request envelope format, and pagination conventions. -->
+| Interface | Audience | Requirements |
+|-----------|----------|-------------|
+| **API** | AI Agents (primary channel) | MUST: Structured JSON I/O, explicit schemas |
+| **CLI** | Developers / Ops | SHOULD: Thin wrapper over the API for debugging and scripting |
+| **Human UI** | End users | MAY: Graphical interface for direct user interaction |
 
-- Responses MUST include standard HTTP cache-control headers where caching is appropriate.
-- Systems that support batch operations SHOULD expose a dedicated batch endpoint following the AFS batch envelope format.
-- Paginated responses MUST include a `nextCursor` field (or equivalent) and MUST declare the maximum page size in the skill definition.
+The API is the canonical interface. The CLI and Human UI are convenience layers that MUST NOT expose capabilities absent from the API.
 
 ---
 
-## Layer 4 — Security Layer
+## Specification Documents
 
-*Defines how trust and safety are enforced: permissions, side-effect declarations, and audit logging.*
+The spec is organized into the following documents:
 
-<!-- TODO: Define the permission scope vocabulary and audit log format. -->
-
-- Skills MUST declare a `permissions` list containing only the minimum required scopes.
-- Any capability that writes, deletes, or modifies data MUST set `sideEffects: true` in its skill definition.
-- Implementations SHOULD emit structured audit log entries for every agent-initiated action, including a timestamp, agent identifier, and the capability invoked.
+| Document | Description |
+|----------|-------------|
+| **[Layer 1 — Interface](./layer-1-interface.md)** | Transport, endpoints, discovery, authentication, MCP compatibility |
+| **[Layer 2 — Documentation](./layer-2-documentation.md)** | skill.md format, progressive disclosure, user-best-practice.md |
+| **[Layer 3 — Efficiency](./layer-3-efficiency.md)** | Compact responses, verbosity control, pagination, caching, streaming |
+| **[Layer 4 — Security](./layer-4-security.md)** | Permissions, side-effects, dangerous operations, rollback, audit, code signing |
+| **[skill.md Schema](./skill-schema.md)** | Canonical JSON Schema and field reference for skill.md |
+| **[Glossary](./glossary.md)** | Definitions of key terms used throughout the spec |
+| **[Conformance Levels](./conformance.md)** | What it means to be AFS Level 1 / 2 / 3 compliant |
 
 ---
 
