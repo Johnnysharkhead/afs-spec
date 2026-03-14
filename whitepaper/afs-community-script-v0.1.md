@@ -25,6 +25,7 @@ The shift from GUI to Agent-Friendly APIs is as monumental as the shift from des
 **Solve Real AI Bottlenecks:** AFS tools use `skill.md` as an AI-optimized instruction manual. By showing AI exactly what it needs to know without wasting tokens, you dramatically reduce AI hallucinations and context overflow. Your tools won't just be wrappers; they will be highly reliable extensions of an Agent's capabilities.
 
 **Dual-Track Opportunity:** Whether you are building adapters for existing software (Track A) or entirely new Agent-native applications (Track B), there is a clear path to impact. 
+
 *Think about it:* Current AIs struggle to book a flight by "clicking" through a complex webpage. An AFS-native (Track B) booking tool strips away the UI, letting the AI communicate directly via data. It's 90% smaller, 10x faster, and 100% reliable.
 
 **Monetization & Growth:** As the ecosystem matures, high-quality, secure AFS tools will become premium assets. We aim for a *thriving marketplace* where developers are rewarded for robustness and utility.
@@ -65,4 +66,4 @@ The transition to Agent-centric computing is inevitable, but its foundation must
 2. **Join the Conversation:** Connect with us on [xxx] to share your ideas, struggle with current AI limits, or propose new workflow patterns.
 3. **Start Building:** Read through the `spec/` folder. Understand the four layers of AFS (Interface, Documentation, Efficiency, Security), and start building your first native tool or adapter.
 
-**Let's stop teaching AI how to use human software, and start building software designed for AI.**
+## Let's stop teaching AI how to use human software, and start building software designed for AI.
