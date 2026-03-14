@@ -1,3 +1,5 @@
+[English](./README.md) | [中文](./README.zh.md)
+
 # AFS — Agent-Friendly Standard
 
 > Don't teach AI to use human software — make software a good tool for AI.
