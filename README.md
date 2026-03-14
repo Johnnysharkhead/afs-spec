@@ -32,7 +32,9 @@ AFS flips the model: instead of "software with an AI inside," AFS enables **"AI 
 ```
 afs-spec/
 ├── README.md                          ← You are here
-├── LICENSE                            ← MIT License
+├── LICENSE                            ← Dual license overview
+├── LICENSE-CC-BY-4.0                  ← CC BY 4.0 (documentation)
+├── LICENSE-MIT                        ← MIT (code)
 ├── whitepaper/
 │   └── afs-whitepaper-v0.1.md         ← Vision, rationale, and competitive analysis
 ├── spec/
@@ -81,4 +83,4 @@ AFS is an open project and welcomes contributions of all kinds:
 
 *This project is documentation-first. No build tooling or code is included at this stage.*
 
-*© Norrai-lab contributors. Licensed under the MIT License.*
+*© Norrai-lab contributors. Documentation licensed under [CC BY 4.0](LICENSE-CC-BY-4.0). Code licensed under [MIT](LICENSE-MIT).*

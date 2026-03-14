@@ -196,4 +196,4 @@ In this future, users describe their needs in a single sentence, and AI automati
 
 ---
 
-*© Norrai-lab contributors. Licensed under the MIT License.*
+*© Norrai-lab contributors. Licensed under [CC BY 4.0](../LICENSE-CC-BY-4.0).*
